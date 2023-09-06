@@ -2,6 +2,17 @@
 #include<Windows.h>
 using namespace std;
 
+
+enum NOMINAL
+{
+	SIX = 6, SEVEN, EIGHT, NINE, TEN = 100, JACK, QWEEN, KING, ACE
+};
+
+enum SUIT
+{
+	SPADE = 1, CLUB, DIAMOND, HEARH
+};
+
 int main()
 {
 	SetConsoleCP(1251);
@@ -121,4 +132,198 @@ int main()
 	cin >> x1 >> y1 >> x2 >> y2;
 	res = abs(x2 - x1) <= 1 && abs(y2 - y1) <= 1;
 	cout << res << endl;*/
+
+
+	///// 06.09.2023 /////
+
+	/*
+	if (condition)
+	{
+		oper;
+	}
+	else
+	{
+		oper;
+	}
+	*/
+	int max;
+	int a, b, c;
+	cin >> a >> b >> c;
+	if (a > b && a > c)
+	{
+		cout << a << endl;
+	}
+	else
+	{
+		if (b > c)
+		{
+			cout << b << endl;
+		}
+		else
+		{
+			cout << c << endl;
+		}
+	}
+
+	max = (a > b && a > c) ? a : (b > c) ? b : c;
+
+	
+	if (a > b)
+	{
+		max = a;
+	}
+	else
+	{
+		max = b;
+	}
+
+	(a > b) ? max = a : max = b;
+
+	max = (a > b) ? a : b;
+
+
+	/*int a, b, re;
+	char oper;
+	bool flag = true;
+	cin >> a >> oper >> b;*/
+
+	/*if (oper == '+')
+	{
+		re = a + b;
+	}
+	else
+	{
+		if (oper == '-')
+		{
+			re = a - b;
+		}
+		else
+		{
+			if (oper == '*')
+			{
+				re = a * b;
+			}
+			else
+			{
+				if (oper == '/')
+				{
+					re = a / b;
+				}
+				else
+				{
+					flag = false;
+					cout << "Ќе найдено" << oper << endl;
+				}
+			}
+		}
+	}
+	if(flag)
+		cout << re << endl;*/
+
+	/*switch (oper)
+	{
+	case '+': re = a + b; break;
+	case '-': re = a - b; break;
+	case '*': re = a * b; break;
+	case '/': re = a / b; break;
+	case '%': re = a % b; break;
+	default:
+		flag = false;
+		cout << "Ќе найдено" << oper << endl;
+		break;
+	}
+	if (flag) 
+		cout << re << endl;*/
+
+
+	//int month;
+	//cout << "Enter moon: ";
+	//cin >> month;
+
+	//switch (month)
+	//{
+	//	//«има
+	//case 12: case 1:  case 2:  cout << "«има"; break;
+	//	//¬есна
+	//case 3:  case 4:  case 5:  cout << "¬есна"; break;
+	//	//Ћ≥то
+	//case 6:  case 7:  case 8:  cout << "Ћ≥то"; break;
+	//	//ќс≥нь
+	//case 9:  case 10: case 11: cout << "ќс≥нь"; break;
+	//default:
+	//	cout << "error";
+	//	break;
+	//}
+	
+
+	/*int m, n;
+	cin >> n >> m;
+	switch (n)
+	{
+	case SIX:   cout << "ш≥стка "; break;
+	case SEVEN: cout << "с≥мка "; break;
+	case EIGHT: cout << "в≥с≥мка "; break;
+	case NINE:  cout << "дев'тка "; break;
+	case TEN:   cout << "дес€тка "; break;
+	case JACK:  cout << "валет "; break;
+	case QWEEN: cout << "дама "; break;
+	case KING:  cout << "король "; break;
+	case ACE:   cout << "туз "; break;
+	}
+
+	switch (m)
+	{
+	case SUIT::SPADE :  cout << "п≥ки" << endl; break;
+	case SUIT::CLUB:    cout << "трефи" << endl; break;
+	case SUIT::DIAMOND: cout << "бубни" << endl; break;
+	case SUIT::HEARH:   cout << "черви" << endl; break;
+	}*/
+
+	/*int n, n1, n2;
+	cin >> n;
+	n1 = n / 10;
+	n2 = n % 10;
+
+	switch (n)
+	{
+	case 11: cout << "одинадц€ть коп≥йок "; break;
+	case 12: cout << "одинадц€ть коп≥йок "; break;
+	case 13: cout << "одинадц€ть коп≥йок "; break;
+	case 14: cout << "одинадц€ть коп≥йок "; break;
+	case 15: cout << "одинадц€ть коп≥йок "; break;
+	case 16: cout << "одинадц€ть коп≥йок "; break;
+	case 17: cout << "одинадц€ть коп≥йок "; break;
+	case 18: cout << "одинадц€ть коп≥йок "; break;
+	case 19: cout << "одинадц€ть коп≥йок "; break;
+
+	default:
+		break;
+	}
+
+	switch (n1)
+	{
+	case 2: cout << "двадц€ть "; break;
+	case 3: cout << "тридц€ть "; break;
+	case 4: cout << "сорок "; break;
+	case 5: cout << "двадц€ть "; break;
+	case 6: cout << "двадц€ть "; break;
+	case 7: cout << "двадц€ть "; break;
+	case 8: cout << "двадц€ть "; break;
+	case 9: cout << "двадц€ть "; break;
+	default:
+		break;
+	}
+
+	switch (n2)
+	{
+	case 1: cout << "одна коп≥йка" << endl; break;
+	case 2: cout << "дв≥ коп≥йки" << endl; break;
+	case 3: cout << "три коп≥йки" << endl; break;
+	case 4: cout << "чотири коп≥йки" << endl; break;
+	case 5: cout << "п'ть коп≥йок" << endl; break;
+	case 6: cout << "шсть коп≥йка" << endl; break;
+	case 7: cout << "одна коп≥йка" << endl; break;
+	case 8: cout << "одна коп≥йка" << endl; break;
+	case 9: cout << "дев'€ть коп≥йка" << endl; break;
+	}*/
 }
