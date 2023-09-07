@@ -146,7 +146,8 @@ int main()
 		oper;
 	}
 	*/
-	int max;
+
+	/*int max;
 	int a, b, c;
 	cin >> a >> b >> c;
 	if (a > b && a > c)
@@ -179,7 +180,7 @@ int main()
 
 	(a > b) ? max = a : max = b;
 
-	max = (a > b) ? a : b;
+	max = (a > b) ? a : b;*/
 
 
 	/*int a, b, re;
@@ -233,7 +234,8 @@ int main()
 		break;
 	}
 	if (flag) 
-		cout << re << endl;*/
+		cout << re << endl;
+	*/
 
 
 	//int month;
@@ -326,4 +328,137 @@ int main()
 	case 8: cout << "одна копійка" << endl; break;
 	case 9: cout << "дев'ять копійка" << endl; break;
 	}*/
+
+	///// 07.09.2023  ///////
+
+
+	/*
+	
+	while(condition)
+	{
+		oper;
+	}
+	
+	*/
+	
+
+	/*
+	 
+	do
+	{
+		oper;
+	} while (condition);
+	
+	*/
+	
+	
+	/*for (int i = 0; i < 5; i++)
+	{
+		cout << i << endl;
+	}*/
+	
+	/*int a = 1;
+	while (a <= 5)
+	{
+		cout << a << endl;
+		a++;
+	}
+
+	for (int i = 1; i <= 5; i++)
+	{
+		cout << i << endl;
+	}
+
+	int b = 1;
+	do
+	{
+		cout << b << endl; 
+		b++;
+	} while (b <=5);*/
+	
+	
+	/*int i;
+	cin >> i;
+
+	for (int a = 1; a <= 10; a++)
+	{
+		cout << a * i << " грн за " << a << " кг" << endl;
+	}*/
+
+
+	/*float k = 1.3;
+	for (int i = 2; i <= 10; i+=2)
+	{
+		cout << 1 + i / 10. << " кг = " << k * (1 + i/10.) << endl;
+	}*/
+
+
+	/*char s;
+	while (true)
+	{
+		cin >> s;
+		
+		if (s == '.')
+		{
+			break;
+		}
+		cout << (int)s << endl;
+	}*/
+	
+	/*int n, s = 0;
+	do
+	{
+		cin >> n;
+		s += n;
+	} while (n != 0);
+	cout << s << endl;*/
+
+
+	/*while (true)
+	{
+		cin >> n;
+		s += n;
+		if (n == 0)
+		{
+			cout << s;
+			break;
+		}
+	}*/
+
+	/*int n;
+	cin >> n;
+	int m = n, k = 0;
+	while (m > 0)
+	{
+		k++;
+		m /= 10;
+	}
+	for (int i = 0; i < 5-k; i++)
+	{
+		cout << 0;
+	}
+	cout << n << endl;*/
+
+
+	/*int a, b;
+	cin >> a >> b;
+	for (int i = a; i <= b; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			cout << i << " ";
+		}
+		cout << endl;
+	}*/
+
+	while (3)
+	{
+
+	}
+
+	for ( ; ; )
+	{
+
+	}
+
 }
