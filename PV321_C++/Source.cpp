@@ -20,19 +20,19 @@ enum SUIT
 // }
 
 
-void starLine()
+void starLine(int count = 10, char sym = '*')
 {
-	for (size_t i = 0; i < 10; i++)
+	for (size_t i = 0; i < count; i++)
 	{
-		cout << "*";
+		cout << sym;
 	}
 	cout << endl;
 }
 
-int sum(int a, int b)
+template<class T1, class T2, class T3>
+auto sum(T1 a, T2 b, T3 c) -> decltype(a+b)
 {
-	int c = a + b;
-	return c;
+	return a + b + c;
 }
 
 float avg3(int a, int b, int c)
@@ -40,6 +40,76 @@ float avg3(int a, int b, int c)
 	float s = (a + b + c) / 3.;
 	return s;
 }
+
+int inc(int a)
+{
+	a++;
+	return a;
+}
+
+template<class T>
+void printArray(T arr[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
+
+template<class T>
+void setArray(T arr[], int size, int min = 0, int max = 9)
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = rand() % (max - min + 1) + min;
+	}
+}
+
+void setArray(float arr[], int size)
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = rand() % 10;
+	}
+}
+
+template<class T>
+int linerSearch(T arr[], int size, T key)
+{
+	for (size_t i = 0; i < size; i++)
+	{
+		if (arr[i] == key) 
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+template<class T>
+void reverseArray(T arr[], int size)
+{
+	for (size_t i = 0; i < size/2; i++)
+	{
+		swap(arr[i], arr[size - 1 - i]);
+	}
+}
+
+template<class T>
+T maxValueArray(T arr[], int size)
+{
+	T max = arr[0];
+	for (size_t i = 0; i < size; i++)
+	{
+		if (arr[i] > max)
+		{
+			max = arr[i];
+		}
+	}
+	return max;
+}
+
 
 
 int main()
@@ -51,26 +121,43 @@ int main()
 
 	srand(time(0));
 
+	auto b = 5;
+	int a = 5;
 
-	starLine();
+	decltype(a + b) f;
+
+	//starLine();
 	//
-	starLine();
+	//starLine();
+	//starLine(25);
+	//starLine(40, '#');
 
-	int c = sum(3, 5);
-	cout << sum(3, 5) << endl;
+	//int c = sum(3, 5);
+	cout << sum(2.6, 5, 'c') << endl;
+
+	//cout << avg3(3, 4, 6) << endl;
 
 
-	cout << avg3(3, 4, 6) << endl;
+	/*int a = 5;
+	a = inc(a);
+	cout << a << endl;*/
 
 
-	/*const int size = 10;
+	const int size = 5;
 	int arr[size];
-	for (size_t i = 0; i < size; i++)
-	{
-		arr[i] = rand() % 10;
-	}
+	setArray(arr, size);
+	printArray(arr, size);
+	//int k = linerSearch(arr, size, 5);
+	//((k == -1)? cout << "Not found" << endl : cout << k << endl);
+	reverseArray(arr, size);
+	printArray(arr, size);
+	cout << maxValueArray(arr, size) << endl;
 
-	for (int i = 0; i < size; i++)
+	float arr2[5] = {2.3, 4.5, 3.5, 5.6, 3.1};
+	setArray(arr2, size);
+	cout << maxValueArray(arr2, size) << endl;
+
+	/*for (int i = 0; i < size; i++)
 	{
 		cout << arr[i] << " ";
 	}
@@ -282,4 +369,13 @@ int main()
 		cout << endl;
 	}*/
 
+
+	// DZ
+	// шаблон сортування
+	// 
+	// конкретна реалізація для СЕТ
+	// 
+	// Написати функцію, що реалізує алгоритм бінарного пошуку 
+	// заданого ключа в одновимірному масиві.
+	
 }
