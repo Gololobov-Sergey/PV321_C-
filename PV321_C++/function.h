@@ -5,7 +5,7 @@
 using namespace std;
 
 template<class T>
-void printArray(T arr[], int size)
+void printArray(T* arr, int size)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -15,7 +15,7 @@ void printArray(T arr[], int size)
 }
 
 template<class T>
-void setArray(T arr[], int size, int min = 0, int max = 9)
+void setArray(T* arr, int size, int min = 0, int max = 9)
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -23,16 +23,16 @@ void setArray(T arr[], int size, int min = 0, int max = 9)
 	}
 }
 
-void setArray(float arr[], int size)
+void setArray(float* arr, int size, int n = 1)
 {
 	for (size_t i = 0; i < size; i++)
 	{
-		arr[i] = rand() % 10;
+		arr[i] = (int)((rand() % 10 / 0.69854877) * pow(10, n)) /pow(10, n);
 	}
 }
 
 template<class T>
-int linerSearch(T arr[], int size, T key)
+int linerSearch(T* arr, int size, T key)
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -45,7 +45,7 @@ int linerSearch(T arr[], int size, T key)
 }
 
 template<class T>
-void reverseArray(T arr[], int size)
+void reverseArray(T* arr, int size)
 {
 	for (size_t i = 0; i < size / 2; i++)
 	{
@@ -54,7 +54,7 @@ void reverseArray(T arr[], int size)
 }
 
 template<class T>
-T maxValueArray(T arr[], int size)
+T maxValueArray(T* arr, int size)
 {
 	T max = arr[0];
 	for (size_t i = 0; i < size; i++)
@@ -69,7 +69,7 @@ T maxValueArray(T arr[], int size)
 
 
 template<class T>
-void bubbleSort(T arr[], int size)
+void bubbleSort(T* arr, int size)
 {
 	for (size_t i = 0; i < size - 1; i++)
 	{
@@ -84,7 +84,7 @@ void bubbleSort(T arr[], int size)
 }
 
 template<class T>
-void selectionSort(T arr[], int size)
+void selectionSort(T* arr, int size)
 {
 	for (size_t current = 0; current < size - 1; current++)
 	{
@@ -103,7 +103,7 @@ void selectionSort(T arr[], int size)
 
 
 template<class T>
-void insertionSort(T arr[], int size)
+void insertionSort(T* arr, int size)
 {
 	int current, k;
 	for (size_t i = 1; i < size; i++)
@@ -117,4 +117,21 @@ void insertionSort(T arr[], int size)
 		}
 		arr[k + 1] = current;
 	}
+}
+
+
+template<class T> 
+T* addElemArray(T* arr, int* size, T value)
+{
+	T* temp = new T[*size + 1];
+	for (size_t i = 0; i < *size; i++)
+	{
+		temp[i] = arr[i];
+	}
+	temp[*size] = value;
+	delete[] arr;
+	
+	(*size)++;
+
+	return temp;
 }

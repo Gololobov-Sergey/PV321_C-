@@ -84,19 +84,90 @@ int main()
 	float* pd = &d;*/
 
 
-	int a = 5;
-	int* pa = &a;
-	int b = 5;
-	int* pb = nullptr; 
-	cout << pb << endl;
+	//int a = 5;
+	//int* pa = &a;
+	//int b = 5;
+	//int* pb = nullptr; 
+	//cout << pb << endl;
 
-	/*cout << pa << endl;
-	cout << pa - 1 << endl;
-	pa = pa - 1;
-	cout << *pa << endl;*/
+	///*cout << pa << endl;
+	//cout << pa - 1 << endl;
+	//pa = pa - 1;
+	//cout << *pa << endl;*/
 
-	cout << (pa != pb) << endl;
+	//cout << (pa != pb) << endl;
 
+	const int size = 5;
+	float arr[size];
+	setArray(arr, size, 4);
+	printArray(arr, size);
+
+	/*for (size_t i = 0; i < size; i++)
+	{
+		cout << *(arr + i) << " ";
+	}
+	cout << endl;
+
+	for (int* i = arr; i <= arr + 4; i++)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;*/
+
+	//arr++;  no!!!
+	/*int* p = arr;
+	p++;*/
+
+	//cout << *(arr + 0) << endl; // arr[0]
+	//cout << *(arr + 1) << endl; // arr[1]
+	//cout << *(arr + 2) << endl;
+
+	//Використовуючи покажчики та оператор розіменування, визначити 
+	// найбільше з двох чисел.
+
+	/*int a = 5, b = 4;
+	int* pa = &a, * pb = &b;
+	if (*pa > *pb)
+	{
+		cout << "A >" << endl;
+	}
+	else
+	{
+		cout << "B >" << endl;
+	}*/
+
+	// Використовуючи покажчики та оператор розіменування, обміняти 
+	// місцями значення двох змінних.
+
+	/*int* T = pa;
+	pa = pb;
+	pb = T;
+
+	cout << a << endl;
+	cout << b << endl;
+	cout << *pa << endl;
+	cout << *pb << endl;*/
+
+
+
+	/*int amount = 0;
+	for (int* i = arr; i <= arr + 9; i++)
+	{
+		amount += *i;
+	}
+	cout << amount << endl;*/
+
+	int n = 5;
+	//cin >> n;
+	int* p = new int[n];
+	setArray(p, n);
+	printArray(p, n);
+	
+	p = addElemArray(p, &n, 999);
+
+	printArray(p, n);
+	cin >> n;
+	delete[] p;
 }
 
 
