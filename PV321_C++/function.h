@@ -5,7 +5,7 @@
 using namespace std;
 
 template<class T>
-void printArray(T* arr, int size)
+void printArray(const T* arr, const int size)
 {
 	for (int i = 0; i < size; i++)
 	{
@@ -32,7 +32,7 @@ void setArray(float* arr, int size, int n = 1)
 }
 
 template<class T>
-int linerSearch(T* arr, int size, T key)
+int linerSearch(const T* arr, int size, const T& key)
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -121,17 +121,55 @@ void insertionSort(T* arr, int size)
 
 
 template<class T> 
-T* addElemArray(T* arr, int* size, T value)
+void addElemArray(T*& arr, int& size, const T& value)
 {
-	T* temp = new T[*size + 1];
-	for (size_t i = 0; i < *size; i++)
+	T* temp = new T[size + 1];
+	for (size_t i = 0; i < size; i++)
 	{
 		temp[i] = arr[i];
 	}
-	temp[*size] = value;
+	temp[size] = value;
 	delete[] arr;
-	
-	(*size)++;
+	arr = temp;
+	size++;
+}
 
-	return temp;
+
+template<class T>
+void delElemArray(T*& arr, int& size)
+{
+	T* temp = new T[size - 1];
+
+	for (size_t i = 0; i < size - 1; i++)
+	{
+		temp[i] = arr[i];
+	}
+
+	delete[] arr;
+
+	size--;
+
+	arr = temp;
+
+}
+
+template<class T>
+void addElemArrayPos(T*& arr, int& size, T value, int pos)
+{
+	T* temp = new T[size + 1];
+	for (size_t i = 0; i < pos; i++)
+	{
+		temp[i] = arr[i];
+	}
+	temp[pos] = value;
+
+	for (size_t i = pos; i < size; i++)
+	{
+		temp[i + 1] = arr[i];
+	}
+	delete[] arr;
+
+	size++;
+
+	arr = temp;
 }

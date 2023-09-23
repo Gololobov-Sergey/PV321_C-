@@ -97,10 +97,10 @@ int main()
 
 	//cout << (pa != pb) << endl;
 
-	const int size = 5;
+	/*const int size = 5;
 	float arr[size];
 	setArray(arr, size, 4);
-	printArray(arr, size);
+	printArray(arr, size);*/
 
 	/*for (size_t i = 0; i < size; i++)
 	{
@@ -157,17 +157,75 @@ int main()
 	}
 	cout << amount << endl;*/
 
-	int n = 5;
-	//cin >> n;
-	int* p = new int[n];
-	setArray(p, n);
-	printArray(p, n);
-	
-	p = addElemArray(p, &n, 999);
+	/*char c = 5;
+	char* pc = &c;
+	cout << sizeof(pc) << endl;*/
 
-	printArray(p, n);
-	cin >> n;
-	delete[] p;
+
+
+
+	//int n = 5;
+	////cin >> n;
+	//int* p = new int[n];
+	//setArray(p, n);
+	//printArray(p, n);
+	//int bbb = 999;
+	//addElemArray(p, n, bbb);
+
+	//printArray(p, n);
+
+	//delElemArray(p, n);
+
+	//printArray(p, n);
+
+	//addElemArrayPos(p, n, 888, 3);
+
+	//printArray(p, n);
+
+
+	/*int aa = 55;
+	int a = 5;       int b = 4;
+	int* pa = &a;    int& ref = b;
+	*pa = 100;       ref = 100;
+	pa = &aa;        ref = aa;*/
+
+	//int a = 5;
+	//int b = 44;
+
+	//const int* pa = &a;
+	////*pa = 100; // no!
+	//a = 100;
+	//pa = &b;
+
+	//int* const pa = &a;
+	//*pa = 100;
+	//pa = &b; // no!
+
+
+	//const int* const pa = &a;
+	//*pa = 100; //no!
+	//pa = &b;   //no!
+
+	//const int& ref = a;
+	//ref = 100;
+
+	//delete[] p;
+
+	int sizeA, sizeB = 0;
+	cin >> sizeA;
+	int* a = new int[sizeA];
+	setArray(a, sizeA);
+	printArray(a, sizeA);
+	int* b = nullptr;
+	for (size_t i = 0; i < sizeA; i++)
+	{
+		if (a[i] % 2 == 0 && linerSearch(b, sizeB, a[i]) == -1) 
+		{
+			addElemArray(b, sizeB, a[i]);
+		}
+	}
+
+	printArray(b, sizeB);
 }
 
 
