@@ -2,6 +2,7 @@
 #include<iomanip>
 #include<Windows.h>
 #include<algorithm>
+#include<conio.h>
 
 #include"function.h"
 #include"Timer.h"
@@ -55,177 +56,150 @@ int inc(int a)
 
 void func(int, int);
 
+void hello() 
+{
+	cout << "Hello" << endl;
+}
+
+void goodbye()
+{
+	cout << "Goodbye" << endl;
+}
+
+
+int sum(int a, int b) 
+{
+	return a + b;
+}
+
+int diff(int a, int b)
+{
+	return a - b;
+}
+
+int mult(int a, int b)
+{
+	return a * b;
+}
+
+int division(int a, int b)
+{
+	return a / b;
+}
+
+
+void my_swap(int& a, int& b)
+{
+	int t = a;
+	a = b;
+	b = t;
+
+	cout << a << endl;
+	cout << b << endl;
+}
+
+void gun(int* bullet)
+{
+	cout << "->" << endl;
+	bullet[0]--;
+}
+
+void mashineGun(int* bullet)
+{
+	cout << "-> -> -> -> ->" << endl;
+	bullet[1] -= 5;
+}
+
+void arrow(int* bullet)
+{
+	cout << ">>----->" << endl;
+	bullet[2]--;
+}
+
+void(*logic(int* bullet))(int*)
+{
+	void(*weapon[])(int*) = { gun, mashineGun, arrow };
+
+	return weapon[linerSearch(bullet, 3, maxValueArray(bullet, 3))];
+}
 
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);  // CP
 
-	/*int a = 5;
-	cout << a << endl;
-	cout << typeid(a).name() << endl;
-	cout << sizeof(a) << endl;
-	cout << &a << endl;
+	
+	// type(*name)(param);
 
-	int* pa = &a;
-	cout << pa << endl;
-	cout << *pa << endl;
-	*pa = 100;
+	/*void(*message)();
+	message = hello;
+	message();
+	message = goodbye;
+	message();
 
-	cout << a << endl;
-
-	int b = 44;
-	pa = &b;
-	*pa = 500;
-
-	cout << b << endl;
-
-	float d = 2.3f;
-	float* pd = &d;*/
-
-
-	//int a = 5;
-	//int* pa = &a;
-	//int b = 5;
-	//int* pb = nullptr; 
-	//cout << pb << endl;
-
-	///*cout << pa << endl;
-	//cout << pa - 1 << endl;
-	//pa = pa - 1;
-	//cout << *pa << endl;*/
-
-	//cout << (pa != pb) << endl;
-
-	/*const int size = 5;
-	float arr[size];
-	setArray(arr, size, 4);
-	printArray(arr, size);*/
-
-	/*for (size_t i = 0; i < size; i++)
+	void(*arrFunc[])() = { hello, goodbye };
+	for (size_t i = 0; i < 2; i++)
 	{
-		cout << *(arr + i) << " ";
-	}
-	cout << endl;
-
-	for (int* i = arr; i <= arr + 4; i++)
-	{
-		cout << *i << " ";
-	}
-	cout << endl;*/
-
-	//arr++;  no!!!
-	/*int* p = arr;
-	p++;*/
-
-	//cout << *(arr + 0) << endl; // arr[0]
-	//cout << *(arr + 1) << endl; // arr[1]
-	//cout << *(arr + 2) << endl;
-
-	//Використовуючи покажчики та оператор розіменування, визначити 
-	// найбільше з двох чисел.
-
-	/*int a = 5, b = 4;
-	int* pa = &a, * pb = &b;
-	if (*pa > *pb)
-	{
-		cout << "A >" << endl;
-	}
-	else
-	{
-		cout << "B >" << endl;
+		arrFunc[i]();
 	}*/
 
-	// Використовуючи покажчики та оператор розіменування, обміняти 
-	// місцями значення двох змінних.
 
-	/*int* T = pa;
-	pa = pb;
-	pb = T;
+	/*int a, b, res, choice;
+	cin >> a >> b;
+	cout << "1 +, 2 -, 3 *, 4 / - ";
+	cin >> choice;
+	int(*operation[])(int, int) = {sum, diff, mult, division};
+	res = operation[choice - 1](a, b);
+	cout << res << endl;*/
 
+
+	//void(*sorting)(int*, int) = bubbleSort;
+
+	//void(*add)(int*&, int&, const int&) = addElemArray;
+
+	/*int a = 5, b = 10;
+	my_swap(a, b);
 	cout << a << endl;
-	cout << b << endl;
-	cout << *pa << endl;
-	cout << *pb << endl;*/
+	cout << b << endl;*/
+
+	/*int size = 30;
+	int* arr = new int[size];
+	setArray(arr, size, 0, 50);
+	printArray(arr, size);
+	bubbleSort(arr, size, lastNumber);
+	printArray(arr, size);*/
 
 
+	int bullet[3] = { 50, 50, 50 };
 
-	/*int amount = 0;
-	for (int* i = arr; i <= arr + 9; i++)
+	void(*shot)(int*);
+	while (true)
 	{
-		amount += *i;
-	}
-	cout << amount << endl;*/
-
-	/*char c = 5;
-	char* pc = &c;
-	cout << sizeof(pc) << endl;*/
-
-
-
-
-	//int n = 5;
-	////cin >> n;
-	//int* p = new int[n];
-	//setArray(p, n);
-	//printArray(p, n);
-	//int bbb = 999;
-	//addElemArray(p, n, bbb);
-
-	//printArray(p, n);
-
-	//delElemArray(p, n);
-
-	//printArray(p, n);
-
-	//addElemArrayPos(p, n, 888, 3);
-
-	//printArray(p, n);
-
-
-	/*int aa = 55;
-	int a = 5;       int b = 4;
-	int* pa = &a;    int& ref = b;
-	*pa = 100;       ref = 100;
-	pa = &aa;        ref = aa;*/
-
-	//int a = 5;
-	//int b = 44;
-
-	//const int* pa = &a;
-	////*pa = 100; // no!
-	//a = 100;
-	//pa = &b;
-
-	//int* const pa = &a;
-	//*pa = 100;
-	//pa = &b; // no!
-
-
-	//const int* const pa = &a;
-	//*pa = 100; //no!
-	//pa = &b;   //no!
-
-	//const int& ref = a;
-	//ref = 100;
-
-	//delete[] p;
-
-	int sizeA, sizeB = 0;
-	cin >> sizeA;
-	int* a = new int[sizeA];
-	setArray(a, sizeA);
-	printArray(a, sizeA);
-	int* b = nullptr;
-	for (size_t i = 0; i < sizeA; i++)
-	{
-		if (a[i] % 2 == 0 && linerSearch(b, sizeB, a[i]) == -1) 
+		if (_kbhit())
 		{
-			addElemArray(b, sizeB, a[i]);
+			char c = _getch();
+			if (c == 'c')
+			{
+				shot = logic(bullet);
+			}
+			if (c == 'g')
+			{
+				shot = gun;
+			}
+			if (c == 'm')
+			{
+				shot = mashineGun;
+			}
+			if (c == 'a')
+			{
+				shot = arrow;
+			}
+			shot(bullet);
 		}
 	}
+	
 
-	printArray(b, sizeB);
+
 }
 
 

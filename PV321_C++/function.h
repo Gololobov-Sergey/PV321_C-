@@ -67,15 +67,51 @@ T maxValueArray(T* arr, int size)
 	return max;
 }
 
+template<class T>
+T minValueArray(T* arr, int size)
+{
+	T min = arr[0];
+	for (size_t i = 0; i < size; i++)
+	{
+		if (arr[i] < min)
+		{
+			min = arr[i];
+		}
+	}
+	return min;
+}
 
 template<class T>
-void bubbleSort(T* arr, int size)
+bool ascending(const T& a, const T& b)
+{
+	return a > b;
+}
+
+
+template<class T>
+bool descending(const T& a, const T& b)
+{
+	return a < b;
+}
+
+
+bool lastNumber(const int& a, const int& b)
+{
+	if (a % 10 > b % 10)
+		return true;
+	if(a % 10 == b % 10)
+		return ascending(a, b);
+	return false;
+}
+
+template<class T>
+void bubbleSort(T* arr, int size, bool(*method)(const T&, const T&) = ascending)
 {
 	for (size_t i = 0; i < size - 1; i++)
 	{
 		for (size_t j = 0; j < size - 1 - i; j++)
 		{
-			if (arr[j] > arr[j + 1])
+			if (method(arr[j], arr[j + 1]))
 			{
 				swap(arr[j], arr[j + 1]);
 			}
