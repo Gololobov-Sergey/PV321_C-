@@ -123,6 +123,69 @@ void(*logic(int* bullet))(int*)
 	return weapon[linerSearch(bullet, 3, maxValueArray(bullet, 3))];
 }
 
+
+int lenStr(char* st)
+{
+	int len = 0;
+	while (st[len] != '\0')
+	{
+		len++;
+	}
+	return len;
+}
+
+char* replaceSymbol(const char* str, char old, char _new)
+{
+	int len = strlen(str);
+	char* res = new char[len + 1];
+	for (size_t i = 0; i < len + 1; i++)
+	{
+		if (str[i] == old) 
+		{
+			res[i] = _new;
+		}
+		else
+		{
+			res[i] = str[i];
+		}
+	}
+	return res;
+}
+
+
+int countWord(const char* str)
+{
+	int word = 0;
+	int i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ' ' && str[i + 1] != ' ')
+		{
+			word++;
+		}
+		i++;
+	}
+	return word;
+}
+
+char* delSubStr(const char* str, const char* old)
+{
+	const char* temp = str;
+	int len = strlen(str);
+	char* res = new char[len + 1];
+	res[0] = '\0';
+	const char* p = strstr(temp, old);
+	while (p != nullptr)
+	{
+		strncat_s(res, len+1, temp, p - temp);
+		temp = p + strlen(old);
+		p = strstr(temp, old);
+	}
+
+	strcat_s(res, len+1, temp);
+	return res;
+}
+
 int main()
 {
 	SetConsoleCP(1251);
@@ -170,7 +233,7 @@ int main()
 	printArray(arr, size);*/
 
 
-	int bullet[3] = { 50, 50, 50 };
+	/*int bullet[3] = { 50, 50, 50 };
 
 	void(*shot)(int*);
 	while (true)
@@ -196,9 +259,91 @@ int main()
 			}
 			shot(bullet);
 		}
-	}
-	
+	}*/
 
+
+	//char st[] = "Hello"; // { 'H', 'e', 'l', 'l', 'o', '\0'};
+	//cout << st << endl;
+	//cout << st[4] << endl;
+	//st[2] = '\0';
+	//cout << st + 2 << endl;
+
+	//char buff[40];
+	//cin.getline(buff, 40);
+	//cout << buff << endl;
+
+	//cout << strlen(name) << endl;
+	/*int len = strlen(buff);
+	char* str = new char[len + 1];
+	strcpy_s(str, len+1, buff);
+
+	cout << str << endl;*/
+
+	//char* p = replaceSymbol(buff, 'a', 'o');
+	//cout << p << endl;
+
+	char st1[80] = "mama mila ramu";
+	//char st2[80];
+
+	//cin.getline(st1, 80);
+	//cin.getline(st2, 80);
+
+	//strcpy_s(st1, 80, st2);
+	//cout << st1 << endl;
+
+	//strncpy_s(st1, 80, st2 + 5, 4);
+	//cout << st1 << endl;
+
+
+	//strcat_s(st1, 80, st2);
+	//cout << st1 << endl;
+
+	//strncat_s(st1, 80, st2, 4);
+	//cout << st1 << endl;
+
+	//cout << strcmp(st1, st2) << endl;
+	//cout << strncmp(st1, st2, 5) << endl;
+	//cout << _stricmp(st1, st2) << endl;
+	//cout << _strnicmp(st1, st2, 4) << endl;
+
+	
+	//char* p = strchr(st1, 'a');
+	/*char* p = strrchr(st1, 'a');
+	if(p != nullptr)
+		cout << p << endl;*/
+
+
+	/*char* p = strstr(st1, "mama");
+	if (p != nullptr)
+		cout << p << endl;*/
+
+	//_strlwr_s(st1);
+	//_strupr_s(st1);
+	//cout << st1 << endl;
+
+
+	//cout << _strrev(st1) << endl;
+
+
+	//_strset_s(st1, '\0');
+	//cout << st1 << endl;
+
+	//int a = _atoi_l(st1, LC_ALL);
+	//double a = _atof_l(st1, LC_ALL);
+	//long a = _atol_l(st1, LC_ALL);
+	//cout << a << endl;
+
+	//_itoa_s(1123345, st1, 36);
+	//cout << st1 << endl;
+
+	/*int arr[] = { 1,2,3 };
+	cout << arr << endl;*/
+
+
+	//cout << countWord(st1) << endl;
+
+	char* p = delSubStr(st1, " ");
+	cout << p << endl;
 
 }
 
