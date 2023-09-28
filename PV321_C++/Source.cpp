@@ -282,7 +282,7 @@ int main()
 	//char* p = replaceSymbol(buff, 'a', 'o');
 	//cout << p << endl;
 
-	char st1[80] = "mama mila ramu";
+	//char st1[80] = "mama mila ramu";
 	//char st2[80];
 
 	//cin.getline(st1, 80);
@@ -342,9 +342,98 @@ int main()
 
 	//cout << countWord(st1) << endl;
 
-	char* p = delSubStr(st1, " ");
-	cout << p << endl;
+	//char* p = delSubStr(st1, " ");
+	//cout << p << endl;
 
+
+	/*int a = 5;
+	int* p = &a;
+	int** p1 = &p;
+
+	cout << *p << endl;
+	cout << p1 << endl;
+	cout << **p1 << endl;*/
+
+	//int row = 5;
+	//int col = 4;
+
+	//int** p = nullptr;
+	//createArray2D(p, row, col);
+	//setArray2D(p, row, col);
+	//printArray2D(p, row, col);
+
+	//int* b = new int[col] {1, 2, 3, 4};
+
+	//addRowArray2D(p, row, col);
+	//cout << endl;
+	//printArray2D(p, row, col);
+
+	//delRowArray2D(p, row);
+	//cout << endl;
+	//printArray2D(p, row, col);
+
+	////int** p1 = createArray2D<int>(row, col);
+
+
+	//swap(p[0], p[row - 1]);
+
+	///*for (size_t i = 0; i < col; i++)
+	//{
+	//	swap(p[0][i], p[row - 1][i]);
+	//}*/
+	//cout << endl;
+	//printArray2D(p, row, col);
+
+
+	//deleteArray2D(p, row);
+
+	/*int row, col;
+	cin >> row >> col;
+	int** A = createArray2D<int>(row, col);
+	int* B = new int[row];
+	setArray(B, row);
+	printArray(B, row);
+	cout << endl;
+	setArray2D(A, row, col);
+	printArray2D(A, row, col);
+
+	for (size_t i = 0; i < row; i++)
+	{
+		swap(A[i][i], B[i]);
+	}
+
+	cout << endl;
+	printArray(B, row);
+	cout << endl;
+	printArray2D(A, row, col);*/
+
+
+	int row, col;
+	cin >> row >> col;
+	int** A = createArray2D<int>(row, col);
+	setArray2D(A, row, col);
+	printArray2D(A, row, col);
+
+	//
+	for (size_t i = 0; i < col-1; i++)
+	{
+		for (size_t j = 0; j < col-1-i; j++)
+		{
+			if (A[0][j] > A[0][j + 1]) 
+			{
+				for (size_t k = 0; k < row; k++)
+				{
+					swap(A[k][j], A[k][j+1]);
+				}
+			}
+		}
+	}
+
+
+	SetColor(LightRed, Black);
+	cout << endl;
+	printArray2D(A, row, col);
+	SetColor(LightGray, Black);
 }
 
 

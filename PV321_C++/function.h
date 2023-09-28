@@ -4,6 +4,19 @@
 
 using namespace std;
 
+
+enum Color
+{
+	Black = 0, Blue = 1, Green = 2, Cyan = 3, Red = 4, Magenta = 5, Brown = 6, LightGray = 7, DarkGray = 8,
+	LightBlue = 9, LightGreen = 10, LightCyan = 11, LightRed = 12, LightMagenta = 13, Yellow = 14, White = 15
+};
+
+void SetColor(int text, int background)
+{
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (WORD)((background << 4) | text));
+}
+
+
 template<class T>
 void printArray(const T* arr, const int size)
 {
@@ -27,7 +40,7 @@ void setArray(float* arr, int size, int n = 1)
 {
 	for (size_t i = 0; i < size; i++)
 	{
-		arr[i] = (int)((rand() % 10 / 0.69854877) * pow(10, n)) /pow(10, n);
+		arr[i] = (int)((rand() % 10 / 0.69854877) * pow(10, n)) / pow(10, n);
 	}
 }
 
@@ -99,7 +112,7 @@ bool lastNumber(const int& a, const int& b)
 {
 	if (a % 10 > b % 10)
 		return true;
-	if(a % 10 == b % 10)
+	if (a % 10 == b % 10)
 		return ascending(a, b);
 	return false;
 }
@@ -125,14 +138,14 @@ void selectionSort(T* arr, int size)
 	for (size_t current = 0; current < size - 1; current++)
 	{
 		int imin = current;
-		for (size_t j = current+1; j < size; j++)
+		for (size_t j = current + 1; j < size; j++)
 		{
-			if (arr[j] < arr[imin]) 
+			if (arr[j] < arr[imin])
 			{
 				imin = j;
 			}
 		}
-		if(current != imin)
+		if (current != imin)
 			swap(arr[current], arr[imin]);
 	}
 }
@@ -156,7 +169,7 @@ void insertionSort(T* arr, int size)
 }
 
 
-template<class T> 
+template<class T>
 void addElemArray(T*& arr, int& size, const T& value)
 {
 	T* temp = new T[size + 1];
@@ -207,5 +220,102 @@ void addElemArrayPos(T*& arr, int& size, T value, int pos)
 
 	size++;
 
+	arr = temp;
+}
+
+template<class T>
+void createArray2D(T**& arr, int row, int col)
+{
+	arr = new int* [row];
+	for (size_t i = 0; i < row; i++)
+	{
+		arr[i] = new int[col];
+	}
+}
+
+
+template<class T>
+T** createArray2D(int row, int col)
+{
+	T** arr = new int* [row];
+	for (size_t i = 0; i < row; i++)
+	{
+		arr[i] = new int[col];
+	}
+	return arr;
+}
+
+
+template<class T>
+void deleteArray2D(T**& arr, int row)
+{
+	for (size_t i = 0; i < row; i++)
+	{
+		delete[] arr[i];
+	}
+	delete[] arr;
+	arr = nullptr;
+}
+
+
+template<class T>
+void setArray2D(T** arr, int row, int col, int min = 0, int max = 9)
+{
+	for (size_t i = 0; i < row; i++)
+	{
+		for (size_t j = 0; j < col; j++)
+		{
+			arr[i][j] = rand() % (max - min + 1) + min;
+		}
+	}
+}
+
+
+
+template<class T>
+void printArray2D(T** arr, int row, int col)
+{
+	for (size_t i = 0; i < row; i++)
+	{
+		for (size_t j = 0; j < col; j++)
+		{
+			cout << setw(3) << arr[i][j];
+		}
+		cout << endl;
+	}
+}
+
+template<class T>
+void addRowArray2D(T**& arr, int& row, int col, T* b = nullptr)
+{
+	T** temp = new T * [row + 1];
+	for (size_t i = 0; i < row; i++)
+	{
+		temp[i] = arr[i];
+	}
+	temp[row] = new T[col]{ 0 };
+	if (b != nullptr)
+	{
+		for (size_t i = 0; i < col; i++)
+		{
+			temp[row][i] = b[i];
+		}
+	}
+	delete[] arr;
+	row++;
+	arr = temp;
+}
+
+template<class T>
+void delRowArray2D(T**& arr, int& row)
+{
+	T** temp = new T * [row - 1];
+	for (size_t i = 0; i < row - 1; i++)
+	{
+		temp[i] = arr[i];
+	}
+	delete[] arr[row - 1];
+	delete[] arr;
+	row--;
 	arr = temp;
 }
