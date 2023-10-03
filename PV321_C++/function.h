@@ -118,7 +118,7 @@ bool lastNumber(const int& a, const int& b)
 }
 
 template<class T>
-void bubbleSort(T* arr, int size, bool(*method)(const T&, const T&) = ascending)
+void bubbleSort(T* arr, int size, bool(*method)(T, T) = ascending)
 {
 	for (size_t i = 0; i < size - 1; i++)
 	{
@@ -166,6 +166,17 @@ void insertionSort(T* arr, int size)
 		}
 		arr[k + 1] = current;
 	}
+}
+
+
+template<class T>
+void createArr(T*& arr, int size)
+{
+	if (size < 0)
+		return;
+	if (arr != nullptr)
+		delete[] arr;
+	arr = new T[size];
 }
 
 
@@ -229,7 +240,8 @@ void createArray2D(T**& arr, int row, int col)
 	arr = new int* [row];
 	for (size_t i = 0; i < row; i++)
 	{
-		arr[i] = new int[col];
+		//arr[i] = new int[col];
+		createArr(arr[i], col);
 	}
 }
 
@@ -257,7 +269,7 @@ void deleteArray2D(T**& arr, int row)
 	arr = nullptr;
 }
 
-
+//Функція заповнення масиву випадковими значенями
 template<class T>
 void setArray2D(T** arr, int row, int col, int min = 0, int max = 9)
 {
@@ -318,4 +330,99 @@ void delRowArray2D(T**& arr, int& row)
 	delete[] arr;
 	row--;
 	arr = temp;
+}
+
+
+template<class T>
+void delRowPosArray2D(T**& arr, int& row, int pos)
+{
+	T** temp = new T * [row - 1];
+	for (size_t i = 0; i < pos; i++)
+	{
+		temp[i] = arr[i];
+	}
+	for (size_t i = pos + 1; i < row; i++)
+	{
+		temp[i - 1] = arr[i];
+	}
+	delete[] arr[pos];
+	delete[] arr;
+	row--;
+	arr = temp;
+}
+
+
+char* delSubStr(const char* str, const char* old)
+{
+	const char* temp = str;
+	int len = strlen(str);
+	char* res = new char[len + 1];
+	res[0] = '\0';
+	const char* p = strstr(temp, old);
+	while (p != nullptr)
+	{
+		strncat_s(res, len + 1, temp, p - temp);
+		temp = p + strlen(old);
+		p = strstr(temp, old);
+	}
+
+	strcat_s(res, len + 1, temp);
+	return res;
+}
+
+
+int countWord(const char* str)
+{
+	int word = 0;
+	int i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ' ' && str[i + 1] != ' ')
+		{
+			word++;
+		}
+		i++;
+	}
+	return word;
+}
+
+char* replaceSymbol(const char* str, char old, char _new)
+{
+	int len = strlen(str);
+	char* res = new char[len + 1];
+	for (size_t i = 0; i < len + 1; i++)
+	{
+		if (str[i] == old)
+		{
+			res[i] = _new;
+		}
+		else
+		{
+			res[i] = str[i];
+		}
+	}
+	return res;
+}
+
+
+void my_swap(int& a, int& b)
+{
+	int t = a;
+	a = b;
+	b = t;
+
+	cout << a << endl;
+	cout << b << endl;
+}
+
+
+
+void printArray(const int* arr)
+{
+	int size = _msize((void*)arr) / sizeof(int);
+	for (int i = 0; i < size; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
 }

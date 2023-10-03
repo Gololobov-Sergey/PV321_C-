@@ -48,81 +48,6 @@ float avg3(int a, int b, int c)
 	return s;
 }
 
-int inc(int a)
-{
-	a++;
-	return a;
-}
-
-void func(int, int);
-
-void hello() 
-{
-	cout << "Hello" << endl;
-}
-
-void goodbye()
-{
-	cout << "Goodbye" << endl;
-}
-
-
-int sum(int a, int b) 
-{
-	return a + b;
-}
-
-int diff(int a, int b)
-{
-	return a - b;
-}
-
-int mult(int a, int b)
-{
-	return a * b;
-}
-
-int division(int a, int b)
-{
-	return a / b;
-}
-
-
-void my_swap(int& a, int& b)
-{
-	int t = a;
-	a = b;
-	b = t;
-
-	cout << a << endl;
-	cout << b << endl;
-}
-
-void gun(int* bullet)
-{
-	cout << "->" << endl;
-	bullet[0]--;
-}
-
-void mashineGun(int* bullet)
-{
-	cout << "-> -> -> -> ->" << endl;
-	bullet[1] -= 5;
-}
-
-void arrow(int* bullet)
-{
-	cout << ">>----->" << endl;
-	bullet[2]--;
-}
-
-void(*logic(int* bullet))(int*)
-{
-	void(*weapon[])(int*) = { gun, mashineGun, arrow };
-
-	return weapon[linerSearch(bullet, 3, maxValueArray(bullet, 3))];
-}
-
 
 int lenStr(char* st)
 {
@@ -134,310 +59,81 @@ int lenStr(char* st)
 	return len;
 }
 
-char* replaceSymbol(const char* str, char old, char _new)
+bool compareString(char* st1, char* st2)
 {
-	int len = strlen(str);
-	char* res = new char[len + 1];
-	for (size_t i = 0; i < len + 1; i++)
-	{
-		if (str[i] == old) 
-		{
-			res[i] = _new;
-		}
-		else
-		{
-			res[i] = str[i];
-		}
-	}
-	return res;
+	if (strcmp(st1, st2) == 1)
+		return true;
+	return false;
 }
 
-
-int countWord(const char* str)
-{
-	int word = 0;
-	int i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == ' ' && str[i + 1] != ' ')
-		{
-			word++;
-		}
-		i++;
-	}
-	return word;
-}
-
-char* delSubStr(const char* str, const char* old)
-{
-	const char* temp = str;
-	int len = strlen(str);
-	char* res = new char[len + 1];
-	res[0] = '\0';
-	const char* p = strstr(temp, old);
-	while (p != nullptr)
-	{
-		strncat_s(res, len+1, temp, p - temp);
-		temp = p + strlen(old);
-		p = strstr(temp, old);
-	}
-
-	strcat_s(res, len+1, temp);
-	return res;
-}
 
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);  // CP
-
+	srand(time(0));
 	
-	// type(*name)(param);
-
-	/*void(*message)();
-	message = hello;
-	message();
-	message = goodbye;
-	message();
-
-	void(*arrFunc[])() = { hello, goodbye };
-	for (size_t i = 0; i < 2; i++)
-	{
-		arrFunc[i]();
-	}*/
-
-
-	/*int a, b, res, choice;
-	cin >> a >> b;
-	cout << "1 +, 2 -, 3 *, 4 / - ";
-	cin >> choice;
-	int(*operation[])(int, int) = {sum, diff, mult, division};
-	res = operation[choice - 1](a, b);
-	cout << res << endl;*/
-
-
-	//void(*sorting)(int*, int) = bubbleSort;
-
-	//void(*add)(int*&, int&, const int&) = addElemArray;
-
-	/*int a = 5, b = 10;
-	my_swap(a, b);
-	cout << a << endl;
-	cout << b << endl;*/
-
-	/*int size = 30;
-	int* arr = new int[size];
-	setArray(arr, size, 0, 50);
-	printArray(arr, size);
-	bubbleSort(arr, size, lastNumber);
-	printArray(arr, size);*/
-
-
-	/*int bullet[3] = { 50, 50, 50 };
-
-	void(*shot)(int*);
-	while (true)
-	{
-		if (_kbhit())
-		{
-			char c = _getch();
-			if (c == 'c')
-			{
-				shot = logic(bullet);
-			}
-			if (c == 'g')
-			{
-				shot = gun;
-			}
-			if (c == 'm')
-			{
-				shot = mashineGun;
-			}
-			if (c == 'a')
-			{
-				shot = arrow;
-			}
-			shot(bullet);
-		}
-	}*/
-
-
-	//char st[] = "Hello"; // { 'H', 'e', 'l', 'l', 'o', '\0'};
-	//cout << st << endl;
-	//cout << st[4] << endl;
-	//st[2] = '\0';
-	//cout << st + 2 << endl;
-
-	//char buff[40];
-	//cin.getline(buff, 40);
-	//cout << buff << endl;
-
-	//cout << strlen(name) << endl;
-	/*int len = strlen(buff);
-	char* str = new char[len + 1];
-	strcpy_s(str, len+1, buff);
-
-	cout << str << endl;*/
-
-	//char* p = replaceSymbol(buff, 'a', 'o');
-	//cout << p << endl;
-
-	//char st1[80] = "mama mila ramu";
-	//char st2[80];
-
-	//cin.getline(st1, 80);
-	//cin.getline(st2, 80);
-
-	//strcpy_s(st1, 80, st2);
-	//cout << st1 << endl;
-
-	//strncpy_s(st1, 80, st2 + 5, 4);
-	//cout << st1 << endl;
-
-
-	//strcat_s(st1, 80, st2);
-	//cout << st1 << endl;
-
-	//strncat_s(st1, 80, st2, 4);
-	//cout << st1 << endl;
-
-	//cout << strcmp(st1, st2) << endl;
-	//cout << strncmp(st1, st2, 5) << endl;
-	//cout << _stricmp(st1, st2) << endl;
-	//cout << _strnicmp(st1, st2, 4) << endl;
-
-	
-	//char* p = strchr(st1, 'a');
-	/*char* p = strrchr(st1, 'a');
-	if(p != nullptr)
-		cout << p << endl;*/
-
-
-	/*char* p = strstr(st1, "mama");
-	if (p != nullptr)
-		cout << p << endl;*/
-
-	//_strlwr_s(st1);
-	//_strupr_s(st1);
-	//cout << st1 << endl;
-
-
-	//cout << _strrev(st1) << endl;
-
-
-	//_strset_s(st1, '\0');
-	//cout << st1 << endl;
-
-	//int a = _atoi_l(st1, LC_ALL);
-	//double a = _atof_l(st1, LC_ALL);
-	//long a = _atol_l(st1, LC_ALL);
-	//cout << a << endl;
-
-	//_itoa_s(1123345, st1, 36);
-	//cout << st1 << endl;
-
-	/*int arr[] = { 1,2,3 };
-	cout << arr << endl;*/
-
-
-	//cout << countWord(st1) << endl;
-
-	//char* p = delSubStr(st1, " ");
-	//cout << p << endl;
-
-
-	/*int a = 5;
-	int* p = &a;
-	int** p1 = &p;
-
-	cout << *p << endl;
-	cout << p1 << endl;
-	cout << **p1 << endl;*/
-
-	//int row = 5;
-	//int col = 4;
-
-	//int** p = nullptr;
-	//createArray2D(p, row, col);
-	//setArray2D(p, row, col);
-	//printArray2D(p, row, col);
-
-	//int* b = new int[col] {1, 2, 3, 4};
-
-	//addRowArray2D(p, row, col);
-	//cout << endl;
-	//printArray2D(p, row, col);
-
-	//delRowArray2D(p, row);
-	//cout << endl;
-	//printArray2D(p, row, col);
-
-	////int** p1 = createArray2D<int>(row, col);
-
-
-	//swap(p[0], p[row - 1]);
-
-	///*for (size_t i = 0; i < col; i++)
-	//{
-	//	swap(p[0][i], p[row - 1][i]);
-	//}*/
-	//cout << endl;
-	//printArray2D(p, row, col);
-
-
-	//deleteArray2D(p, row);
-
 	/*int row, col;
 	cin >> row >> col;
 	int** A = createArray2D<int>(row, col);
-	int* B = new int[row];
-	setArray(B, row);
-	printArray(B, row);
-	cout << endl;
 	setArray2D(A, row, col);
 	printArray2D(A, row, col);
 
 	for (size_t i = 0; i < row; i++)
 	{
-		swap(A[i][i], B[i]);
+		if (linerSearch(A[i], col, 0) != -1)
+			delRowPosArray2D(A, row, i--);
 	}
 
-	cout << endl;
-	printArray(B, row);
 	cout << endl;
 	printArray2D(A, row, col);*/
 
 
-	int row, col;
-	cin >> row >> col;
-	int** A = createArray2D<int>(row, col);
-	setArray2D(A, row, col);
-	printArray2D(A, row, col);
 
-	//
-	for (size_t i = 0; i < col-1; i++)
-	{
-		for (size_t j = 0; j < col-1-i; j++)
-		{
-			if (A[0][j] > A[0][j + 1]) 
-			{
-				for (size_t k = 0; k < row; k++)
-				{
-					swap(A[k][j], A[k][j+1]);
-				}
-			}
-		}
-	}
+	//int count = 5;
+	//char** pib = new char* [count];
+	//for (size_t i = 0; i < count; i++)
+	//{
+	//	char buff[1024];
+	//	cin.getline(buff, 1024);
+	//	int len = strlen(buff);
+	//	pib[i] = new char[len + 1];
+	//	strcpy_s(pib[i], len+1, buff);
+	//}
+
+	//bubbleSort(pib, count, compareString);
+
+	///*for (size_t i = 0; i < count - 1; i++)
+	//{
+	//	for (size_t j = 0; j < count - 1 - i; j++)
+	//	{
+	//		if (strcmp(pib[j], pib[j + 1]) == 1)
+	//		{
+	//			swap(pib[j], pib[j + 1]);
+	//		}
+	//	}
+	//}*/
+
+	//cout << endl;
+	//for (size_t i = 0; i < count; i++)
+	//{
+	//	cout << pib[i] << endl;
+	//}
 
 
-	SetColor(LightRed, Black);
-	cout << endl;
-	printArray2D(A, row, col);
-	SetColor(LightGray, Black);
+	void** p = new void*[2];
+	p[0] = new char[20];
+	strcpy_s((char*)p[0], 20, "mama");
+	p[1] = new int;
+	*((int*)p[1]) = 10;
+
+	cout << (char*)p[0] << endl;
+	cout << *((int*)p[1]) << endl;
+
+	int* aa = new int[10];
+	setArray(aa, 10);
+	printArray(aa);
+
+
 }
 
-
-void func(int a, int b)
-{
-	cout << "func" << endl;
-}

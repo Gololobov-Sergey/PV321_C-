@@ -132,6 +132,7 @@
     <ClCompile Include="Week 1.cpp" />
     <ClCompile Include="Week 2.cpp" />
     <ClCompile Include="Week 3.cpp" />
+    <ClCompile Include="Week 4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="function.h" />
