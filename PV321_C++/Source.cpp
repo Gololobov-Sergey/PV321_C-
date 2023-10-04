@@ -6,6 +6,7 @@
 
 #include"function.h"
 #include"Timer.h"
+#include"Structs.h"
 
 using namespace std;
 
@@ -67,6 +68,10 @@ bool compareString(char* st1, char* st2)
 }
 
 
+
+
+
+
 int main()
 {
 	SetConsoleCP(1251);
@@ -121,7 +126,7 @@ int main()
 	//}
 
 
-	void** p = new void*[2];
+	/*void** p = new void*[2];
 	p[0] = new char[20];
 	strcpy_s((char*)p[0], 20, "mama");
 	p[1] = new int;
@@ -132,8 +137,79 @@ int main()
 
 	int* aa = new int[10];
 	setArray(aa, 10);
-	printArray(aa);
+	printArray(aa);*/
 
+
+	/*int size;
+	cin >> size;
+	int* a = new int[size];
+	setArray(a, size);
+	printArray(a, size);
+
+	int*** p = ArrToArr2D(a, size);
+
+	printArr3D(p);*/
+
+
+
+	/*Point p;
+	p.x = 10;
+	p.y = 2;
+	p.name = 'A';
+
+	Point p1 = { 'B', 3, 5 };
+
+	printPoint(p);
+	printPoint(p1);
+
+	Point p3[] = { 'C', 4, 5, 'D', 2, 7, 'E', 5, 8 };
+	for (size_t i = 0; i < 3; i++)
+	{
+		printPoint(p3[i]);
+	}
+
+	Point* p4 = new Point[5];
+	p4[2].x = 12;*/
+
+
+	/*const int size = 5;
+	Point p[size];
+
+	for (size_t i = 0; i < size; i++)
+	{
+		p[i].name = 'A' + i;
+		p[i].x = rand() % 10;
+		p[i].y = rand() % 10;
+	}
+
+	for (size_t i = 0; i < size; i++)
+	{
+		printPoint(p[i]);
+	}
+
+	int i1 = 0, i2 = 0;
+	float maxLen = 0;
+	for (size_t i = 0; i < size - 1; i++)
+	{
+		for (size_t j = i + 1; j < size; j++)
+		{
+			float len = len2Point(p[i], p[j]);
+			if (len > maxLen)
+			{
+				maxLen = len;
+				i1 = i;
+				i2 = j;
+			}
+		}
+	}
+
+	printPoint(p[i1]);
+	printPoint(p[i2]);*/
+
+
+
+	Date d = { 31, 12, 2023 };
+	printDate(addDay(d));
 
 }
 

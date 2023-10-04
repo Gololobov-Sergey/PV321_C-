@@ -426,3 +426,44 @@ void printArray(const int* arr)
 	}
 	cout << endl;
 }
+
+
+int*** ArrToArr2D(int* a, int size)
+{
+	int k = 0;
+	for (size_t i = 2; i < size; i++)
+	{
+		if (size % i == 0)
+			k++;
+	}
+
+	int*** p = new int** [k];
+	k = 0;
+	for (size_t i = 2; i < size; i++)
+	{
+		if (size % i == 0)
+		{
+			int row = i;
+			int col = size / i;
+			p[k] = createArray2D<int>(row, col);
+			for (size_t m = 0; m < size; m++)
+			{
+				p[k][m / col][m % col] = a[m];
+			}
+			k++;
+		}
+	}
+	return p;
+}
+
+void printArr3D(int*** p)
+{
+	int k = _msize(p) / sizeof(int**);
+	for (size_t i = 0; i < k; i++)
+	{
+		int row = _msize(p[i]) / sizeof(int*);
+		int col = _msize(p[i][0]) / sizeof(int);
+		printArray2D(p[i], row, col);
+		cout << endl;
+	}
+}
