@@ -7,6 +7,7 @@
 #include"function.h"
 #include"Timer.h"
 #include"Structs.h"
+#include"Bank.h"
 
 using namespace std;
 
@@ -177,14 +178,12 @@ int main()
 
 	for (size_t i = 0; i < size; i++)
 	{
-		p[i].name = 'A' + i;
-		p[i].x = rand() % 10;
-		p[i].y = rand() % 10;
+		p[i].set('A' + i, rand() % 10, rand() % 10);
 	}
 
 	for (size_t i = 0; i < size; i++)
 	{
-		printPoint(p[i]);
+		p[i].print();
 	}
 
 	int i1 = 0, i2 = 0;
@@ -193,7 +192,7 @@ int main()
 	{
 		for (size_t j = i + 1; j < size; j++)
 		{
-			float len = len2Point(p[i], p[j]);
+			float len = p[i].len2Point(p[j]);
 			if (len > maxLen)
 			{
 				maxLen = len;
@@ -203,13 +202,48 @@ int main()
 		}
 	}
 
-	printPoint(p[i1]);
-	printPoint(p[i2]);*/
+	p[i1].print();
+	p[i2].print();*/
 
 
 
-	Date d = { 31, 12, 2023 };
-	printDate(addDay(d));
+	/*Date d = { 31, 12, 2023 };
+	printDate(addDay(d));*/
+
+
+
+	/*Point p1 = { 'B', 3, 5 };
+	p1.print();*/
+
+	/*Car car;
+	car.move();
+	car.beep();*/
+
+	Bank bank;
+	bank.setName("MONOBANK");
+
+	////
+
+	Account acc1 = { "UAH", 1, new char[34] {"Українська гривня"}, "UA326157123456789", 1000 };
+	Account acc2 = { "USD", 1, new char[34] {"Долар США"},         "UA326157144673456", 500 };
+	Account acc3 = { "EUR", 1, new char[34] {"ЄВРО"},              "UA326151249646543", 100 };
+	Account acc4 = { "UAH", 1, new char[34] {"Українська гривня"}, "UA326152344454545", 8000 };
+
+	Client c1;
+	c1.name = new char[] {"Gololobov SA"};
+	addElemArray(c1.accounts, c1.sizeAcc, acc1);
+	addElemArray(c1.accounts, c1.sizeAcc, acc3);
+
+	Client c2;
+	c2.name = new char[] {"Petrov FD"};
+	addElemArray(c2.accounts, c2.sizeAcc, acc2);
+	addElemArray(c2.accounts, c2.sizeAcc, acc4);
+
+	addElemArray(bank.clients, bank.sizeClient, c1);
+	addElemArray(bank.clients, bank.sizeClient, c2);
+	////
+
+	bank.menu();
 
 }
 

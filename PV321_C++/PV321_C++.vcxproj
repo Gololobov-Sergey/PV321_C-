@@ -135,6 +135,7 @@
     <ClCompile Include="Week 4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bank.h" />
     <ClInclude Include="function.h" />
     <ClInclude Include="Structs.h" />
     <ClInclude Include="Timer.h" />

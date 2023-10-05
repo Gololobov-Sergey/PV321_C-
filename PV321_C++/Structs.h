@@ -7,19 +7,31 @@ struct Point
 	char name;
 	int x;
 	int y;
+
+	void set(char n, int _x, int _y)
+	{
+		name = n;
+		x = _x;
+		y = _y;
+	}
+
+
+	void print()
+	{
+		cout << name << "( x = " << x << ", y = " << y << " )" << endl;
+	}
+
+	float len2Point(Point p)
+	{
+		return sqrt(pow(x - p.x, 2) + pow(y - p.y, 2));
+	}
 };
 
 
-void printPoint(Point p)
-{
-	cout << p.name << "( x = " << p.x << ", y = " << p.y << " )" << endl;
-}
 
 
-float len2Point(Point p1, Point p2)
-{
-	return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
-}
+
+
 
 
 struct Date
@@ -69,9 +81,42 @@ Date addDay(Date d)
 }
 
 
-
 struct Human
 {
 	char* name;
 	Date birthDay;
+};
+
+
+struct Engine
+{
+	int cylinders = 4;
+
+	void start()
+	{
+		cout << "Engine start" << endl;
+	}
+
+	void end()
+	{
+		cout << "Engine end" << endl;
+	}
+};
+
+
+struct Car
+{
+	Engine engine;
+
+	void move()
+	{
+		engine.start();
+		cout << "Car move" << endl;
+		engine.end();
+	}
+
+	void beep()
+	{
+		cout << "Beep beep" << endl;
+	}
 };
