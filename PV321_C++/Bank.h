@@ -32,11 +32,12 @@ struct Account
 		do
 		{
 			system("cls");
-			cout << "Account : " << IBAN << endl;
+			cout << "Account : " << currency.kodNBU << " " << IBAN << endl;
 			cout << "===============================" << endl;
-			cout << "1. Add Sum\n2. Withdraw sum\n3. Return back\n";
+			cout << "1. Add Sum\n2. Withdraw sum\n0. Return back\n";
 			int choice;
 			cin >> choice;
+			cin.ignore();
 			switch (choice)
 			{
 			case 1:
@@ -45,7 +46,7 @@ struct Account
 			case 2:
 				withdrawSum();
 				break;
-			case 3:
+			case 0:
 				return;
 			default:
 				break;
@@ -75,11 +76,12 @@ struct Client
 		cout << "===============================" << endl;
 		for (size_t i = 0; i < sizeAcc; i++)
 		{
-			cout << i + 1 << ". " << accounts[i].IBAN << endl;
+			cout << i + 1 << ". " << accounts[i].currency.kodNBU << " " << accounts[i].IBAN << endl;
 		}
 		int choice;
 		cout << "Choice: ";
 		cin >> choice;
+		cin.ignore();
 		accounts[choice - 1].menu();
 	}
 
@@ -95,9 +97,10 @@ struct Client
 			system("cls");
 			cout << "Client : " << name << endl;
 			cout << "===============================" << endl;
-			cout << "1. Print all Accounts\n2. Work with Account\n3. Add Account\n4. Return back\n";
+			cout << "1. Print all Accounts\n2. Work with Account\n3. Add Account\n0. Return back\n";
 			int choice;
 			cin >> choice;
+			cin.ignore();
 			switch (choice)
 			{
 			case 1:
@@ -109,7 +112,7 @@ struct Client
 			case 3:
 				addAccount();
 				break;
-			case 4:
+			case 0:
 				return;
 			default:
 				break;
@@ -127,7 +130,18 @@ struct Bank
 
 	void addClient()
 	{
-
+		system("cls");
+		cout << "Add Clients" << endl;
+		cout << "===============================" << endl;
+		char buff[80];
+		cout << "Enter name : ";
+		cin.getline(buff, 80);
+		Client c;
+		c.name = new char[strlen(buff) + 1];
+		strcpy_s(c.name, strlen(buff) + 1, buff);
+		addElemArray(clients, sizeClient, c);
+		cout << "Client Added!" << endl;
+		system("pause");
 	}
 
 
@@ -150,6 +164,7 @@ struct Bank
 		int choice;
 		cout << "Choice: ";
 		cin >> choice;
+		cin.ignore();
 		clients[choice - 1].menu();
 	}
 
@@ -166,9 +181,10 @@ struct Bank
 			system("cls");
 			cout << "Bank : " << name << endl;
 			cout << "===============================" << endl;
-			cout << "1. Print all Clients\n2. Work with Clients\n3. Add Client\n4. Exit\n";
+			cout << "1. Print all Clients\n2. Work with Clients\n3. Add Client\n0. Exit\n";
 			int choice;
 			cin >> choice;
+			cin.ignore();
 			switch (choice)
 			{
 			case 1:
@@ -180,7 +196,7 @@ struct Bank
 			case 3:
 				addClient();
 				break;
-			case 4:
+			case 0:
 				exit(0);
 			default:
 				break;

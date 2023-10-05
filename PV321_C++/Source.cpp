@@ -224,15 +224,21 @@ int main()
 
 	////
 
-	Account acc1 = { "UAH", 1, new char[34] {"Українська гривня"}, "UA326157123456789", 1000 };
-	Account acc2 = { "USD", 1, new char[34] {"Долар США"},         "UA326157144673456", 500 };
-	Account acc3 = { "EUR", 1, new char[34] {"ЄВРО"},              "UA326151249646543", 100 };
-	Account acc4 = { "UAH", 1, new char[34] {"Українська гривня"}, "UA326152344454545", 8000 };
+	Currency curr[] = { "UAH", 1, new char[34] {"Українська гривня"},
+						"USD", 1, new char[34] {"Долар США"},
+						"EUR", 1, new char[34] {"ЄВРО"} };
+
+	Account acc1 = { curr[0], "UA326157123456789", 1000};
+	Account acc5 = { curr[0], "UA326157999999999", 1000};
+	Account acc2 = { curr[1], "UA326157144673456", 500};
+	Account acc3 = { curr[2], "UA326151249646543", 100};
+	Account acc4 = { curr[0], "UA326152344454545", 8000};
 
 	Client c1;
 	c1.name = new char[] {"Gololobov SA"};
 	addElemArray(c1.accounts, c1.sizeAcc, acc1);
 	addElemArray(c1.accounts, c1.sizeAcc, acc3);
+	addElemArray(c1.accounts, c1.sizeAcc, acc5);
 
 	Client c2;
 	c2.name = new char[] {"Petrov FD"};
