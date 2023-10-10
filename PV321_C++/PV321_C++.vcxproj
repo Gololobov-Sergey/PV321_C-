@@ -133,6 +133,7 @@
     <ClCompile Include="Week 2.cpp" />
     <ClCompile Include="Week 3.cpp" />
     <ClCompile Include="Week 4.cpp" />
+    <ClCompile Include="Week 5.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />

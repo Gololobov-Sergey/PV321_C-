@@ -39,19 +39,21 @@ struct Date
 	int day = 1;
 	int month = 1;
 	int year = 1900;
+
+	void print()
+	{
+		if (day < 10)
+			cout << 0;
+		cout << day << ".";
+		if (month < 10)
+			cout << 0;
+		cout << month << ".";
+		cout << year << endl;
+	}
 };
 
 
-void printDate(Date d)
-{
-	if (d.day < 10)
-		cout << 0;
-	cout << d.day << ".";
-	if (d.month < 10)
-		cout << 0;
-	cout << d.month << ".";
-	cout << d.year << endl;
-}
+
 
 Date addDay(Date d)
 {
@@ -81,10 +83,16 @@ Date addDay(Date d)
 }
 
 
-struct Human
+struct Student
 {
 	char* name;
 	Date birthDay;
+
+	void print()
+	{
+		cout << setw(20) << left << name << " ";
+		birthDay.print();
+	}
 };
 
 

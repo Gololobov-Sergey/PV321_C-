@@ -30,6 +30,9 @@
     <ClCompile Include="Week 4.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Week 5.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="function.h">
@@ -41,10 +44,10 @@
     <ClInclude Include="Structs.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Bank.h">
-      <Filter>Исходные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="Menu.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Bank.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
