@@ -6,8 +6,6 @@ struct Currency
 	char kodNBU[4];
 	float rate;
 	char* name;
-
-
 };
 
 
@@ -25,6 +23,11 @@ struct Account
 	void withdrawSum()
 	{
 
+	}
+
+	void print()
+	{
+		cout << currency.kodNBU << " " << IBAN << " " << setw(8) << balance << endl;
 	}
 
 	void menu()
@@ -63,11 +66,17 @@ struct Client
 	Account* accounts = nullptr;
 	int sizeAcc = 0;
 
-	void printAllAccount()
+	
+	void print()
 	{
-
+		
+		cout << name << endl;
+		for (size_t i = 0; i < sizeAcc; i++)
+		{
+			cout << "\t";
+			accounts[i].print();
+		}
 	}
-
 
 	void workWithAccount()
 	{
@@ -104,7 +113,9 @@ struct Client
 			switch (choice)
 			{
 			case 1:
-				printAllAccount();
+				system("cls");
+				print();
+				system("pause");
 				break;
 			case 2:
 				workWithAccount();
@@ -148,7 +159,13 @@ struct Bank
 	void printAllClients()
 	{
 		system("cls");
-		cout << "printAllClients" << endl;
+		cout << " All Clients" << endl;
+		cout << "==========================================" << endl;
+		for (size_t i = 0; i < sizeClient; i++)
+		{
+			cout << setw(3) << i + 1 << " ";
+			clients[i].print();
+		}
 		system("pause");
 	}
 

@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="Bank.h" />
     <ClInclude Include="function.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Structs.h" />
     <ClInclude Include="Timer.h" />
   </ItemGroup>
