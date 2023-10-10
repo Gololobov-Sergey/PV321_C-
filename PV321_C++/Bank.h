@@ -1,4 +1,5 @@
 #pragma once
+#include"Menu.h"
 
 
 struct Currency
@@ -174,15 +175,13 @@ struct Bank
 		system("cls");
 		cout << "Work With Clients" << endl;
 		cout << "===============================" << endl;
+		vector<string> client;
 		for (size_t i = 0; i < sizeClient; i++)
 		{
-			cout << i + 1 << ". " << clients[i].name << endl;
+			client.push_back(clients[i].name);
 		}
-		int choice;
-		cout << "Choice: ";
-		cin >> choice;
-		cin.ignore();
-		clients[choice - 1].menu();
+		int choice = Menu::select_vertical(client, HorizontalAlignment::Left, 3);\
+		clients[choice].menu();
 	}
 
 	void setName(const char* n)
@@ -198,22 +197,24 @@ struct Bank
 			system("cls");
 			cout << "Bank : " << name << endl;
 			cout << "===============================" << endl;
-			cout << "1. Print all Clients\n2. Work with Clients\n3. Add Client\n0. Exit\n";
-			int choice;
-			cin >> choice;
-			cin.ignore();
+			int choice = Menu::select_vertical({
+				"Print all Clients", 
+				"Work with Clients", 
+				"Add Client", 
+				"Exit"},
+				HorizontalAlignment::Left, 3);
 			switch (choice)
 			{
-			case 1:
+			case 0:
 				printAllClients();
 				break;
-			case 2:
+			case 1:
 				workWithClients();
 				break;
-			case 3:
+			case 2:
 				addClient();
 				break;
-			case 0:
+			case 3:
 				exit(0);
 			default:
 				break;

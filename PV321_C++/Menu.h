@@ -16,7 +16,7 @@ enum HorizontalAlignment
 };
 
 
-class Menu
+static class Menu
 {
 public:
 	static int select_vertical(vector <string> menu, HorizontalAlignment ha, int y = 12)
