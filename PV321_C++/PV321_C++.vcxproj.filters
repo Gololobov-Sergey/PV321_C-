@@ -51,4 +51,12 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data.bin">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="st.bin">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+  </ItemGroup>
 </Project>

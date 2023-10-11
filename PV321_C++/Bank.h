@@ -25,6 +25,15 @@ struct Account
 	{
 
 	}
+	void save(ofstream& out)
+	{
+		out << currency.kodNBU << " " << IBAN << " " << balance << endl;
+	}
+	void load(ifstream& in)
+	{
+		in >> currency.kodNBU >> IBAN >> balance;
+		in.get();
+	}
 
 	void print()
 	{
@@ -98,6 +107,29 @@ struct Client
 	void addAccount()
 	{
 
+	}
+	void save(ofstream& out)
+	{
+		out << name << endl;
+		out << sizeAcc << endl;
+		for (size_t i = 0; i < sizeAcc; i++)
+		{
+			accounts[i].save(out);
+		}
+	}
+	void load(ifstream& in)
+	{
+		char buff[80];
+		in.getline(buff, 80);
+		name = new char[strlen(buff) + 1];
+		strcpy_s(name, strlen(buff) + 1, buff);
+		in >> sizeAcc;
+		in.get();
+		accounts = new Account[sizeAcc];
+		for (size_t i = 0; i < sizeAcc; i++)
+		{
+			accounts[i].load(in);
+		}
 	}
 
 	void menu()
@@ -190,8 +222,40 @@ struct Bank
 		strcpy_s(name, strlen(n) + 1, n);
 	}
 
+	void load()
+	{
+		ifstream in("bank.txt");
+		if (in.is_open())
+		{
+			in >> sizeClient;
+			in.get();
+			clients = new Client[sizeClient];
+			for (size_t i = 0; i < sizeClient; i++)
+			{
+				clients[i].load(in);
+			}
+		}
+		else
+		{
+			cout << "File not found!" << endl;
+		}
+	}
+
+	void save()
+	{
+		ofstream out("bank.txt");
+		out << sizeClient << endl;
+		for (size_t i = 0; i < sizeClient; i++)
+		{
+			clients[i].save(out);
+		}
+	}
+
 	void menu()
 	{
+
+		load();
+
 		do
 		{
 			system("cls");
@@ -215,6 +279,7 @@ struct Bank
 				addClient();
 				break;
 			case 3:
+				save();
 				exit(0);
 			default:
 				break;
