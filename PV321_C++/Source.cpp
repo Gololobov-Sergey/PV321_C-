@@ -9,6 +9,23 @@
 #include"Timer.h"
 #include"Structs.h"
 #include"Bank.h"
+#include"funcString.h"
+
+#define SIZE 50
+#define ДРУК cout
+#define ЦИКЛ(n) for(int i = 0; i < n; i++)
+#define SQR(n) (n)*(n)
+
+#define BEGIN {
+
+#define END }
+
+#define CAT(a,b) a##b
+
+#define STATIC
+
+#define setArr setArray
+
 
 using namespace std;
 
@@ -85,6 +102,8 @@ int main()
 	
 #pragma region Student
 
+	
+
 	//Student* st = nullptr;
 	//int size = 0;
 
@@ -152,7 +171,7 @@ int main()
 #pragma endregion
 	
 
-	int arr[10] = { 2,3,5,6,6,4,32,2,45 };
+	//int arr[10] = { 2,3,5,6,6,4,32,2,45 };
 
 	//ofstream out("text.txt");
 	////out.open("text.txt");
@@ -233,38 +252,45 @@ int main()
 
 	s.print();*/
 
+#ifdef TEST
+	SetConsoleTitleA("БАНК - Тестова версія");
+#else
+	SetConsoleTitleA("БАНК - Робоча версія");
+#endif
 
-	//Bank bank;
-	//bank.setName("MONOBANK");
 
-	//////
+	Bank bank;
+	bank.setName("MONOBANK");
 
-	///*Currency curr[] = { "UAH", 1, new char[34] {"Українська гривня"},
-	//					"USD", 37.2, new char[34] {"Долар США"},
-	//					"EUR", 40.5, new char[34] {"ЄВРО"} };
+	////
+#ifdef TEST
+	Currency curr[] = { "UAH", 1, new char[34] {"Українська гривня"},
+						"USD", 37.2, new char[34] {"Долар США"},
+						"EUR", 40.5, new char[34] {"ЄВРО"} };
 
-	//Account acc1 = { curr[0], "UA326157123456789", 1000};
-	//Account acc5 = { curr[0], "UA326157999999999", 1000};
-	//Account acc2 = { curr[1], "UA326157144673456", 500};
-	//Account acc3 = { curr[2], "UA326151249646543", 100};
-	//Account acc4 = { curr[0], "UA326152344454545", 8000};
+	Account acc1 = { curr[0], "UA326157123456789", 1000};
+	Account acc5 = { curr[0], "UA326157999999999", 1000};
+	Account acc2 = { curr[1], "UA326157144673456", 500};
+	Account acc3 = { curr[2], "UA326151249646543", 100};
+	Account acc4 = { curr[0], "UA326152344454545", 8000};
 
-	//Client c1;
-	//c1.name = new char[] {"Gololobov SA"};
-	//addElemArray(c1.accounts, c1.sizeAcc, acc1);
-	//addElemArray(c1.accounts, c1.sizeAcc, acc3);
-	//addElemArray(c1.accounts, c1.sizeAcc, acc5);
+	Client c1;
+	c1.name = new char[] {"Gololobov SA"};
+	addElemArray(c1.accounts, c1.sizeAcc, acc1);
+	addElemArray(c1.accounts, c1.sizeAcc, acc3);
+	addElemArray(c1.accounts, c1.sizeAcc, acc5);
 
-	//Client c2;
-	//c2.name = new char[] {"Petrov FD"};
-	//addElemArray(c2.accounts, c2.sizeAcc, acc2);
-	//addElemArray(c2.accounts, c2.sizeAcc, acc4);
+	Client c2;
+	c2.name = new char[] {"Petrov FD"};
+	addElemArray(c2.accounts, c2.sizeAcc, acc2);
+	addElemArray(c2.accounts, c2.sizeAcc, acc4);
 
-	//addElemArray(bank.clients, bank.sizeClient, c1);
-	//addElemArray(bank.clients, bank.sizeClient, c2);*/
-	//////
+	addElemArray(bank.clients, bank.sizeClient, c1);
+	addElemArray(bank.clients, bank.sizeClient, c2);
+	////
+#endif
 
-	//bank.menu();
+	bank.menu();
 
 
 
@@ -293,10 +319,44 @@ int main()
 	ofstream out("st.bin", ios::binary);
 	out.write((char*)&s, sizeof(Student));*/
 
-	Student s;
+	/*Student s;
 	ifstream in("st.bin", ios::binary);
 	in.read((char*)&s, sizeof(Student));
-	s.print();
+	s.print();*/
+
+
+	//cout << countWord("jwerty woieuro wieuro wieuroweiru") << endl;
+
+    /*int arr[SIZE];
+	setArray(arr, SIZE);
+	ЦИКЛ(5)
+	BEGIN
+		ДРУК << "Hello" << endl;
+	END
+	cout << SQR(5.2 + 1) << endl;
+
+
+#undef SIZE
+
+#define SIZE 100
+
+	int bbb[SIZE];
+
+	int CAT(aa, 1) = 10;
+	cout << aa1 << endl;*/
+
+
+	//int arr[10];
+	//int* arr = new int[10];
+
+
+#ifdef STATIC
+	int arr[10];
+#else
+	int* arr = new int[10];
+#endif
+
+	setArr(arr, 10);
 
 }
 

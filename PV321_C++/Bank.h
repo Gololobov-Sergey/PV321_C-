@@ -1,6 +1,7 @@
 #pragma once
 #include"Menu.h"
 
+#define TEST
 
 struct Currency
 {
@@ -25,6 +26,8 @@ struct Account
 	{
 
 	}
+
+#ifndef TEST
 	void save(ofstream& out)
 	{
 		out << currency.kodNBU << " " << IBAN << " " << balance << endl;
@@ -34,6 +37,7 @@ struct Account
 		in >> currency.kodNBU >> IBAN >> balance;
 		in.get();
 	}
+#endif
 
 	void print()
 	{
@@ -108,6 +112,8 @@ struct Client
 	{
 
 	}
+
+#ifndef TEST
 	void save(ofstream& out)
 	{
 		out << name << endl;
@@ -131,7 +137,7 @@ struct Client
 			accounts[i].load(in);
 		}
 	}
-
+#endif
 	void menu()
 	{
 		do
@@ -222,6 +228,7 @@ struct Bank
 		strcpy_s(name, strlen(n) + 1, n);
 	}
 
+#ifndef TEST
 	void load()
 	{
 		ifstream in("bank.txt");
@@ -250,12 +257,13 @@ struct Bank
 			clients[i].save(out);
 		}
 	}
+#endif
 
 	void menu()
 	{
-
+#ifndef TEST
 		load();
-
+#endif
 		do
 		{
 			system("cls");
@@ -279,7 +287,9 @@ struct Bank
 				addClient();
 				break;
 			case 3:
+#ifndef TEST
 				save();
+#endif
 				exit(0);
 			default:
 				break;

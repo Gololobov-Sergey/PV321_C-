@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="funcString.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Week 1.cpp" />
     <ClCompile Include="Week 2.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />
+    <ClInclude Include="funcString.h" />
     <ClInclude Include="function.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Structs.h" />
